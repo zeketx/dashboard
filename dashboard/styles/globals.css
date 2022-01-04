@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "sidebar content";
+}
