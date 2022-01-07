@@ -1,0 +1,19 @@
+import Firebase from 'Firebase/app';
+import 'Firebase/auth';
+
+/***
+ * creating auth login only 
+ * will add microsoft auth and SSO later
+ * */ 
+
+const FirebaseCredentials = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+}
+// if a Firebase instance doesn't exist, create one
+if (!Firebase.apps.length) {
+  Firebase.initializeApp(FirebaseCredentials)
+}
+
+export default Firebase;
