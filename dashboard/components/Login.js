@@ -3,9 +3,12 @@ import { auth } from "../lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = ({ handleClose }) => {
+    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   console.log(email, password)
+
   const handleSubmit = async () => {
     if (!email || !password) {
       console.log({
