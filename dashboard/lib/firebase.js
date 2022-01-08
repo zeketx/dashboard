@@ -1,19 +1,22 @@
-import Firebase from 'Firebase/app';
-import 'Firebase/auth';
-
+import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth'
 /***
  * creating auth login only 
  * will add microsoft auth and SSO later
  * */ 
 
-const FirebaseCredentials = {
+const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
-}
-// if a Firebase instance doesn't exist, create one
-if (!Firebase.apps.length) {
-  Firebase.initializeApp(FirebaseCredentials)
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGE_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 }
 
-export default Firebase;
+const firebaseApp = initializeApp(firebaseConfig);
+
+const auth = getAuth(firebaseApp); // For Authentication
+
+export { auth };
