@@ -10,7 +10,7 @@ import { auth } from "../lib/firebase";
  * - add modal 
  * - add Microsoft login
  * - add Google Login
- * - test comment
+ * - test comment again
  * **/ 
 
  const logOut = () => {
