@@ -8,7 +8,7 @@ const Signup = ({ handleClose }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-//   const { setAlert } = CryptoState();
+// const { setAlert } = CryptoState();
 // inspo https://github.com/piyush-eon/react-crypto-tracker/blob/Firebase-Integration/src/components/Authentication/Signup.js
 console.log()
 
