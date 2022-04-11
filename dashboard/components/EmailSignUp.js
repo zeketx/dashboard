@@ -4,7 +4,7 @@ import { auth } from "../lib/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import Link from "next/link"
 
-const EmailsignUp = () => {
+const EmailSignUp = () => {
   const Router = useRouter()
 
   const signupHandler = useCallback(
@@ -73,4 +73,4 @@ const EmailsignUp = () => {
   )
 }
 
-export default EmailsignUp
+export default EmailSignUp
