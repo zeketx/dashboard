@@ -1,10 +1,12 @@
-import React, { useContext } from "react"
-import { AuthContext } from "../context/AuthUserContext"
+import React, { useCallback, useContext } from "react"
 import { useRouter } from "next/router"
-import EmailLogin from "../components/EmailLogin"
+import EmailSignUp from "../components/EmailSignUp"
+import { AuthContext } from "../context/AuthUserContext"
 
-const Login = () => {
+
+const Signup = () => {
   const { currentUser } = useContext(AuthContext)
+
   const Router = useRouter()
 
   if (currentUser) {
@@ -13,13 +15,13 @@ const Login = () => {
   } else {
     return (
       <div className="">
-        <h1 className="">Login Using </h1>
+        <h1 className="">Sign Up using</h1>
         <div className="">
-          <EmailLogin />
+          <EmailSignUp />
         </div>
       </div>
     )
   }
 }
 
-export default Login
+export default Signup

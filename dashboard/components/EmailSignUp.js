@@ -1,22 +1,22 @@
 import React, { useCallback } from "react"
 import { useRouter } from "next/router"
-import { auth } from "../lib/firebase"
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../lib/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import Link from "next/link"
 
-const SignUp = () => {
-
+const EmailsignUp = () => {
   const Router = useRouter()
 
-  const loginHandler = useCallback(
+  const signupHandler = useCallback(
     async (event) => {
+      console.log("signupHandler called")
       event.preventDefault()
       const { email, password } = event.target.elements
       try {
-        await signInWithEmailAndPassword(auth, email.value, password.value)
+        console.log(email.value, password.value)
+        await createUserWithEmailAndPassword(auth, email.value, password.value)
         Router.push("/")
       } catch (error) {
-        console.log("error")
         alert(error)
       }
     },
@@ -24,9 +24,9 @@ const SignUp = () => {
   )
 
   return (
-    <div className="">
+    <div>
       <form
-        onSubmit={loginHandler}
+        onSubmit={signupHandler}
       >
         <div className="mb-4">
           <label
@@ -48,6 +48,7 @@ const SignUp = () => {
             Password
           </label>
           <input
+            className=""
             name="password"
             id="password"
             type="password"
@@ -56,20 +57,20 @@ const SignUp = () => {
         </div>
         <div className="">
           <button
+            className=""
             type="submit"
           >
-            Sign In
+            Sign Up
           </button>
-          <Link href="/signup">
+          <Link href="/login">
             <a className="">
-              Sign up?
+              Login ?
             </a>
           </Link>
         </div>
       </form>
     </div>
   )
-
 }
 
-export default SignUp;
+export default EmailsignUp

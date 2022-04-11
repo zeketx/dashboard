@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { useRouter } from "next/router"
-import { AuthContext } from "../context/AuthContext"
+import { AuthContext } from "../context/AuthUserContext"
 // we want to check if user is logged in
 // if not --> redirect currentUser to /login or /home
 const AuthRoute = ({ children }) => {

@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 /***
  * creating auth login only 
@@ -15,8 +15,11 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 }
 
-const firebaseApp = initializeApp(firebaseConfig);
-console.log(firebaseConfig)
-const auth = getAuth(firebaseApp); // For Authentication
+let firebaseApp
 
-export { auth };
+if (!getApps().length) {
+  firebaseApp = initializeApp(firebaseConfig)
+}
+
+export const app = firebaseApp
+export const auth = getAuth(app)
