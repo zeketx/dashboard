@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { auth } from "../lib/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import Link from "next/link"
+import 'bulma/css/bulma.min.css'
 
 const EmailSignUp = () => {
   const Router = useRouter()
@@ -17,7 +18,7 @@ const EmailSignUp = () => {
         await createUserWithEmailAndPassword(auth, email.value, password.value)
         Router.push("/")
       } catch (error) {
-        alert(error)
+        alert("something happened here is the error ---> " + error)
       }
     },
     [Router]
@@ -28,13 +29,14 @@ const EmailSignUp = () => {
       <form
         onSubmit={signupHandler}
       >
-        <div className="mb-4">
+        <div >
           <label
             htmlFor="email"
           >
             Email
           </label>
           <input
+            className="input is-success"
             name="email"
             id="email"
             type="email"
@@ -48,7 +50,7 @@ const EmailSignUp = () => {
             Password
           </label>
           <input
-            className=""
+            className="input is-success"
             name="password"
             id="password"
             type="password"
@@ -57,14 +59,14 @@ const EmailSignUp = () => {
         </div>
         <div className="">
           <button
-            className=""
+            className="button is-success"
             type="submit"
           >
             Sign Up
           </button>
           <Link href="/login">
-            <a className="">
-              Login ?
+            <a className="button is-primary is-outlined ml-4">
+              Login
             </a>
           </Link>
         </div>

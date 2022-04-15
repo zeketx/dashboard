@@ -15,8 +15,8 @@ function Index() {
 
   return (
     <AuthRoute>
-      <div class="container is-max-desktop  pt-6">
-        <h1 className="">Home</h1>
+      <div className="container is-max-desktop  pt-6">
+        <h1 className="is-size-1">Home</h1>
         <button
           className="button is-success is-outlined"
           onClick={signOutHandler}

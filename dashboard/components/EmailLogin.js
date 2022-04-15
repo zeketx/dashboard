@@ -17,7 +17,7 @@ const EmailLogin = () => {
         Router.push("/")
       } catch (error) {
         console.log("error")
-        alert(error)
+        alert("something happened here is the error ---> " + error)
       }
     },
     [Router]
