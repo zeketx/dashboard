@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import { auth } from "../lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import 'bulma/css/bulma.min.css'
 
 const EmailLogin = () => {
   const Router = useRouter()
@@ -24,9 +25,7 @@ const EmailLogin = () => {
   
   return (
     <div className="">
-      <div>
-        test
-      </div>
+
       <form
         onSubmit={loginHandler}
         className=""
@@ -39,7 +38,7 @@ const EmailLogin = () => {
             Email
           </label>
           <input
-            className=""
+            class="input is-warning"
             name="email"
             id="email"
             type="email"
@@ -54,7 +53,7 @@ const EmailLogin = () => {
             Password
           </label>
           <input
-            className=""
+            class="input is-warning"
             name="password"
             id="password"
             type="password"
@@ -63,14 +62,14 @@ const EmailLogin = () => {
         </div>
         <div className="">
           <button
-            className=""
+            className="button is-success is-outlined"
             type="submit"
           >
             Sign In
           </button>
-          <Link href="/signup">
-            <a className="">
-              Sign up?
+          <Link href="/signup" >
+            <a className="button is-dark ml-1">
+              Sign Up
             </a>
           </Link>
         </div>

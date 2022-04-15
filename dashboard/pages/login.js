@@ -12,8 +12,8 @@ const Login = () => {
     return <></>
   } else {
     return (
-      <div className="">
-        <h1 className="">Login Using </h1>
+      <div className="container is-max-desktop  pt-6">
+        <h1 className="is-size-1">Login Using </h1>
         <div className="">
           <EmailLogin />
         </div>

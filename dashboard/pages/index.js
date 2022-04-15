@@ -3,6 +3,8 @@ import { auth } from "../lib/firebase"
 import { signOut } from "firebase/auth"
 import AuthRoute from "../authHoC/authRoute"
 import { AuthContext } from "../context/AuthUserContext"
+import 'bulma/css/bulma.min.css'
+
 
 function Index() {
   const { userData } = useContext(AuthContext)
@@ -13,10 +15,10 @@ function Index() {
 
   return (
     <AuthRoute>
-      <div>
+      <div class="container is-max-desktop  pt-6">
         <h1 className="">Home</h1>
         <button
-          className=""
+          className="button is-success is-outlined"
           onClick={signOutHandler}
         >
           Sign out
@@ -27,16 +29,13 @@ function Index() {
             <h6>{userData.userProviderId}</h6>
           </div>
           <div className="">
-            <h4>userId:</h4>
-            <h6>{userData.userId}</h6>
+            <h4>userId: {userData.userId}</h4>
           </div>
           <div className="">
-            <h4>display name:</h4>
-            <h6>{userData.userName ? userData.userName : "null"}</h6>
+            <h4>display name: {userData.userName ? userData.userName : "null"}</h4>
           </div>
           <div className="">
-            <h4>email:</h4>
-            <h6>{userData.userEmail}</h6>
+            <h4>email: {userData.userEmail}</h4>
           </div>
           <div className="">
             <h4>Profile picture</h4>
